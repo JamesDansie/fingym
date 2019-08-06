@@ -122,3 +122,16 @@ rainyDayBucket.setPosition(AllyRainy, 60);
 
 retirementBucket.calculateAllocations();
 rainyDayBucket.calculateAllocations();
+
+//animation?
+var wrapper = document.querySelector('.wrapper');
+
+// wrapper.classList.add('animate');  
+
+setInterval(function () {   
+  wrapper.classList.add('animate');  
+}, 1000);
+
+setInterval(function () {  
+  wrapper.classList.remove('animate');   
+}, 8500);
