@@ -6,6 +6,7 @@ tfoot {
   border-top: 3px solid black;
 }
 thead {
+  margin: 140px;
   border-bottom: 3px solid black;
 }
 th {
@@ -20,6 +21,8 @@ tbody tr:hover {
   background-color: black;
   color: white;
 }
+
+/* inspired by javier at; https://codepen.io/JavRok/pen/EXMyXW */
 .wrapper {
   padding-top: 30px;
   margin-left: -300px;
@@ -70,6 +73,15 @@ tbody tr:hover {
   margin: auto;
   position: relative;
   left: 450px;
+}
+#investment{
+  left: 350px;
+  margin-top: 20px;
+}
+#retirement{
+  left: 250px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 .bucket::before {
   content: "";
