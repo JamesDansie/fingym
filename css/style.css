@@ -96,6 +96,11 @@ tbody tr:hover {
   bottom: -80px;
   right: -85px;
 }
+.corner__bottomLeft{
+  position: absolute;
+  bottom: -40px;
+  right: 85px;
+}
 .corner path {
   stroke-width: 11px;
   fill: none;
