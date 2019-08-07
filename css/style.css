@@ -75,9 +75,13 @@ tbody tr:hover {
   content: "";
   position: absolute;
   background: #009fdf;
+  height: 0px;
+  width: 100%;
+  bottom: 0px;
 }
 .animate .bucket::before {
   transition: height 1s linear;
+  height: 90px;
 }
 .corner {
   position: absolute;

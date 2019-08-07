@@ -84,16 +84,23 @@ $pipeHeight: 150px;
 }
 
 .bucket{
-  width: $circleSize;
-  height: $circleSize;
+  width: $circleSize*1.3;
+  height: $circleSize*1.3;
   background-color: $color;
+  margin: auto;
+  position: relative;
+  left: 450px;
 
   &::before{
     content: "";
     background: $activeColor;
-
+    height: 0px;
+    width: 100%;
+    bottom: 0px;
+    position: absolute;
     .animate & {
       transition: height 1s linear;
+      height: 90px;
     }
   }
 }
