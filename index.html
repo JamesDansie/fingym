@@ -57,7 +57,48 @@
                 </svg> 
             </div>  
         </div>
-           
+        <form id="bucketCreation">
+            <label>Name of Bucket:</label>
+            <input name = "bucketName" type = "text">
+            <input type="submit" name="submitButton" value= "submit" />
+        </form>
+        <form id="positionCreation">
+            <label>Name of Position:</label>
+            <input name = "positionName" type = "text">
+
+            <label>Market Value of Position:</label>
+            <input name = "positionMarketValue" type = "number">
+
+            <label>Yield of Position:</label>
+            <input name = "positionYield" type = "number">
+
+            <label>Risk of Position:</label>
+            <input name = "positionRisk" type = "number">
+
+            <input type="submit" name="submitButton" value= "submit" />
+        </form>
+        <form id = "addAllocation">
+            <label>Bucket: </label>
+            <input list = "buckets" name="bucket">
+            <datalist id = "buckets">
+                <option value = "he/him"></option>
+                <option value = "she/her"></option>
+                <option value = "they/them"></option>
+            </datalist>
+
+            <label>Target Allocation:</label>
+            <input name = "targetAllocation" type = "text">
+
+            <label>Position: </label>
+            <input list = "positions" name="position">
+            <datalist id = "positions">
+                <option value = "he/him"></option>
+                <option value = "she/her"></option>
+                <option value = "they/them"></option>
+            </datalist>
+            <input type="submit" name="submitButton" value= "submit" />
+        </form>
+
         <table>
             <thead>
                 <tr>

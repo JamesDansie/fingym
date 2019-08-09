@@ -51,89 +51,51 @@ Bucket.prototype.calculateAllocations = function(){
   }
 };
 
-//Add element function
-function addElement(childElType, childText, ParentEl){
-  var childEl = document.createElement(childElType);
-  childEl.textContent = childText;
-  ParentEl.appendChild(childEl);
-}
+// //Add element function
+// function addElement(childElType, childText, ParentEl){
+//   var childEl = document.createElement(childElType);
+//   childEl.textContent = childText;
+//   ParentEl.appendChild(childEl);
+// }
 
-//Makes the table body
-function renderTBody(){
-  //for each bucket
-  allBuckets.forEach(function(bucket){
+// //Makes the table body
+// function renderTBody(){
+//   //for each bucket
+//   allBuckets.forEach(function(bucket){
 
-    //within each bucket grab the data
-    bucket.targetAllocation.forEach(function(bucketData){
-      var trEl = document.createElement('tr');
-      tbody.appendChild(trEl);
+//     //within each bucket grab the data
+//     bucket.targetAllocation.forEach(function(bucketData){
+//       var trEl = document.createElement('tr');
+//       tbody.appendChild(trEl);
 
-      addElement('td', bucketData.Position.name, trEl);
-      addElement('td', bucketData.Position.marketValue, trEl);
-      addElement('td', parseFloat(bucketData.Position.posYield*100).toFixed(2), trEl);
-      addElement('td', parseFloat(bucketData.Position.monthlyIncome).toFixed(2), trEl);
-      addElement('td', bucketData.Position.risk, trEl);
-      addElement('td', bucket.name, trEl);
-      addElement('td', parseFloat(bucketData.targetAllocation*100).toFixed(2), trEl);
-      addElement('td', parseFloat(bucketData.actualAllocation*100).toFixed(2), trEl);
-      addElement('td', parseFloat(bucketData.drift*100).toFixed(2), trEl);
+//       addElement('td', bucketData.Position.name, trEl);
+//       addElement('td', bucketData.Position.marketValue, trEl);
+//       addElement('td', parseFloat(bucketData.Position.posYield*100).toFixed(2), trEl);
+//       addElement('td', parseFloat(bucketData.Position.monthlyIncome).toFixed(2), trEl);
+//       addElement('td', bucketData.Position.risk, trEl);
+//       addElement('td', bucket.name, trEl);
+//       addElement('td', parseFloat(bucketData.targetAllocation*100).toFixed(2), trEl);
+//       addElement('td', parseFloat(bucketData.actualAllocation*100).toFixed(2), trEl);
+//       addElement('td', parseFloat(bucketData.drift*100).toFixed(2), trEl);
 
-      totalMarketValue += bucketData.Position.marketValue;
-      totalMonthlyIncome += bucketData.Position.monthlyIncome;
-    });
-  });
-}
+//       totalMarketValue += bucketData.Position.marketValue;
+//       totalMonthlyIncome += bucketData.Position.monthlyIncome;
+//     });
+//   });
+// }
 
-function renderTFoot(){
-  var trEl = document.createElement('tr');
-  tfoot.appendChild(trEl);
+// function renderTFoot(){
+//   var trEl = document.createElement('tr');
+//   tfoot.appendChild(trEl);
 
-  addElement('th', 'Total', trEl);
-  addElement('td', parseFloat(totalMarketValue).toFixed(2), trEl);
-  addElement('td', '-', trEl);
-  addElement('td', parseFloat(totalMonthlyIncome).toFixed(2), trEl);
-  for(var i = 0; i < 5; i++){
-    addElement('td', '-', trEl);
-  }
-}
-
-$(document).ready(function(){
-  // $('tbody').append('blah');
-  // renderTBody();
-  // renderTFoot();
-  // $('tbody').append('<tr></tr>');
-  // var blah = $('<td></td>').text('hello');
-  // $('tbody tr:last-child').append(blah);
-  // $('tbody tr:last-child').append('hi');
-
-
-  allBuckets.forEach(function(bucket){
-    bucket.targetAllocation.forEach(function(bucketData){
-      //for each allocation we're making a new row, then appending td's with data
-      $('tbody').append('<tr></tr>');
-      $('tbody tr:last-child').append($('<td></td>').text(bucketData.Position.name));
-      $('tbody tr:last-child').append($('<td></td>').text(bucketData.Position.marketValue));
-      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.Position.posYield*100).toFixed(2)));
-      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.Position.monthlyIncome).toFixed(2)));
-      $('tbody tr:last-child').append($('<td></td>').text(bucketData.Position.risk));
-      $('tbody tr:last-child').append($('<td></td>').text(bucket.name));
-      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.targetAllocation*100).toFixed(2)));
-      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.actualAllocation*100).toFixed(2)));
-      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.drift*100).toFixed(2)));
-    });
-  });
-
-
-  //Rendering footer
-  $('tfoot').append('<tr></tr>');
-  $('tfoot tr:last-child').append('<th>Total</th>');
-  $('tfoot tr:last-child').append($('<td></td>').text(parseFloat(totalMarketValue).toFixed(2)));
-  $('tfoot tr:last-child').append($('<td></td>').text('-'));
-  $('tfoot tr:last-child').append($('<td></td>').text(parseFloat(totalMonthlyIncome).toFixed(2)));
-  for(var i = 0; i < 5; i++){
-    $('tfoot tr:last-child').append($('<td></td>').text('-'));
-  }
-});
+//   addElement('th', 'Total', trEl);
+//   addElement('td', parseFloat(totalMarketValue).toFixed(2), trEl);
+//   addElement('td', '-', trEl);
+//   addElement('td', parseFloat(totalMonthlyIncome).toFixed(2), trEl);
+//   for(var i = 0; i < 5; i++){
+//     addElement('td', '-', trEl);
+//   }
+// }
 
 var retirementBucket = new Bucket('retirement');
 var rainyDayBucket = new Bucket('rainyDay');
@@ -157,12 +119,51 @@ rainyDayBucket.calculateAllocations();
 //animation?
 var wrapper = document.querySelector('.wrapper');
 
-// wrapper.classList.add('animate');  
-
-setInterval(function () {   
-  wrapper.classList.add('animate');  
+setInterval(function () {
+  wrapper.classList.add('animate');
 }, 1000);
 
-setInterval(function () {  
-  wrapper.classList.remove('animate');   
+setInterval(function () {
+  wrapper.classList.remove('animate');
 }, 8500);
+
+$(document).ready(function(){
+  // $('tbody').append('blah');
+  // renderTBody();
+  // renderTFoot();
+  // $('tbody').append('<tr></tr>');
+  // var blah = $('<td></td>').text('hello');
+  // $('tbody tr:last-child').append(blah);
+  // $('tbody tr:last-child').append('hi');
+
+  //Rendering the table body
+  allBuckets.forEach(function(bucket){
+    bucket.targetAllocation.forEach(function(bucketData){
+      //for each allocation we're making a new row, then appending td's with data
+      $('tbody').append('<tr></tr>');
+      $('tbody tr:last-child').append($('<td></td>').text(bucketData.Position.name));
+      $('tbody tr:last-child').append($('<td></td>').text(bucketData.Position.marketValue));
+      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.Position.posYield*100).toFixed(2)));
+      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.Position.monthlyIncome).toFixed(2)));
+      $('tbody tr:last-child').append($('<td></td>').text(bucketData.Position.risk));
+      $('tbody tr:last-child').append($('<td></td>').text(bucket.name));
+      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.targetAllocation*100).toFixed(2)));
+      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.actualAllocation*100).toFixed(2)));
+      $('tbody tr:last-child').append($('<td></td>').text(parseFloat(bucketData.drift*100).toFixed(2)));
+
+      totalMarketValue += bucketData.Position.marketValue;
+      totalMonthlyIncome += bucketData.Position.monthlyIncome;
+    });
+  });
+
+
+  //Rendering footer
+  $('tfoot').append('<tr></tr>');
+  $('tfoot tr:last-child').append('<th>Total</th>');
+  $('tfoot tr:last-child').append($('<td></td>').text(parseFloat(totalMarketValue).toFixed(2)));
+  $('tfoot tr:last-child').append($('<td></td>').text('-'));
+  $('tfoot tr:last-child').append($('<td></td>').text(parseFloat(totalMonthlyIncome).toFixed(2)));
+  for(var i = 0; i < 5; i++){
+    $('tfoot tr:last-child').append($('<td></td>').text('-'));
+  }
+});
