@@ -19,13 +19,11 @@
         <div class="wrapper">
             
             <div class="vertical-line anim-2nd">
-                <p>Income</p>
+                <p id = "incomePrint">Income</p>
             </div>
             
             <div class="horizontal-line anim-4th">
-                <p>
-                    Expenses
-                </p>
+                <p id = "expensesPrint">Expenses</p>
                 <div class='drop'></div>
                 
                 <!-- SVG for the corners, easier to make the fill effect with -->
@@ -57,6 +55,16 @@
                 </svg> 
             </div>  
         </div>
+        <form id="income">
+            <label>Monthly Income:</label>
+            <input name = "income" type = "number">
+            <input type="submit" name="submitButton" value= "submit" />
+        </form>
+        <form id="expenses">
+            <label>Monthly Expenses:</label>
+            <input name = "expenses" type = "number">
+            <input type="submit" name="submitButton" value= "submit" />
+        </form>
         <form id="bucketCreation">
             <label>Name of Bucket:</label>
             <input name = "bucketName" type = "text">
@@ -69,7 +77,7 @@
             <label>Market Value of Position:</label>
             <input name = "positionMarketValue" type = "number">
 
-            <label>Yield of Position:</label>
+            <label>Yield of Position (%):</label>
             <input name = "positionYield" type = "number">
 
             <label>Risk of Position:</label>
@@ -81,20 +89,16 @@
             <label>Bucket: </label>
             <input list = "buckets" name="bucket">
             <datalist id = "buckets">
-                <option value = "he/him"></option>
-                <option value = "she/her"></option>
-                <option value = "they/them"></option>
+
             </datalist>
 
-            <label>Target Allocation:</label>
-            <input name = "targetAllocation" type = "text">
+            <label>Target Allocation (%):</label>
+            <input name = "targetAllocation" type = "number">
 
             <label>Position: </label>
             <input list = "positions" name="position">
             <datalist id = "positions">
-                <option value = "he/him"></option>
-                <option value = "she/her"></option>
-                <option value = "they/them"></option>
+
             </datalist>
             <input type="submit" name="submitButton" value= "submit" />
         </form>

@@ -13,7 +13,7 @@ CSS
 
 JS Requirements
 ✔ table for output @done (8/5/2019, 2:29:13 PM)
-☐ read the form values
+✔ read the form values @done (8/11/2019, 2:30:09 PM)
   ☐ figure out the jquery form/event listners stuff
 ☐ use form values to make new positions/buckets
 ☐ re-render table after form submits
